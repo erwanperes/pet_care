@@ -1,6 +1,6 @@
 <h1>Home</h1>
  <% if user_signed_in? %>
- 	<%= current_user.email %>
+ 	<%= current_user.full_name %>
 	 <br>
 	<%= link_to 'Edit my profile', edit_user_registration_path %>
 	<br>
@@ -10,3 +10,4 @@
 	<br>
 	<%= link_to "SignUp", new_user_registration_path %>
  <% end %>
+ 

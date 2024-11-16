@@ -49,6 +49,7 @@ gem "autoprefixer-rails"
 gem 'ostruct'
 gem 'devise'
 gem "sassc-rails"
+gem 'simple_form'
 
 
 
