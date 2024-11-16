@@ -1,4 +1,11 @@
 class Pet < ApplicationRecord
+  SPECIES  = [
+    "Dog",
+    "Cat",
+    "Rabbit",
+    "Other"
+  ]
+  
   belongs_to :user
   belongs_to :vet, optional: true
   
@@ -11,6 +18,7 @@ class Pet < ApplicationRecord
   has_many :vet_appointments
   
   validates :name, presence: true
+  validates :species, presence: true, inclusion: { in: SPECIES }
   validates :breed, presence: true
   validates :birth_day, presence: true
   validates :gender, presence: true

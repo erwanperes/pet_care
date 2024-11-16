@@ -1,0 +1,17 @@
+<%= simple_form_for pet do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :name %>
+  <%= f.select :species, Pet::SPECIES, prompt: "Select species" %>
+  <%= f.input :breed %>
+  <%= f.input :gender, collection: ['male', 'female'], prompt: "Select gender" %>
+  <%= f.input :birth_day %>
+
+  <% if controller_name == 'pets' && action_name == 'new' %>
+	  <%= f.button :submit, 'Add' %>
+	<% elsif controller_name == 'pets' && action_name == 'edit' %>
+	  <%= f.button :submit, 'Update' %>
+	 <% end %>
+
+  
+<% end %>

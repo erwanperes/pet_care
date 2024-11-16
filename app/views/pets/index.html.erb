@@ -1,0 +1,26 @@
+<h1>My Pets dashboard</h1>
+<p>views/pets/index.html.erb</p>
+
+ <%  @pets.each do |pet| %>
+ 	<table>
+		  <tr>
+			  <th class='title' scope="row"><%= pet.name %></th>
+			  <td><%= pet.breed %></td>
+			  <td><%= pet.species %></td>
+			  <td><%= pet.gender %></td>
+			  <td><%= pet.birth_day %></td>
+			  <td>
+				  <div>
+					  <%= link_to 'Show', [pet]%>
+						  <%= link_to 'Edit', edit_pet_path(pet)%>
+						<%= link_to 'Destroy', [pet], data: {
+							turbo_method: :delete,
+							turbo_confirm: "Are you sure?"
+						  }  %>
+				  </div>
+			</td>
+			</tr>
+		</table>
+ <% end %>
+ <%= link_to 'Home', root_path %>
+ 
