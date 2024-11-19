@@ -3,7 +3,7 @@ class PetsController < ApplicationController
   before_action :set_pet, only: [:show, :edit, :update, :destroy]
   
   def index
-    @pets = current_user.pets
+    @pets = current_user.pets.order(:name)
   end
 
   def show

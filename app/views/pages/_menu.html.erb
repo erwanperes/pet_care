@@ -1,0 +1,28 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light py-4 position-relative">
+    <div class="container">
+      <a class="navbar-brand" href="#">
+        <img class="img-fluid" src="bootstrap5-plain-assets/logos/plainb-logo.svg" alt="" width="96px">
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#header04" aria-controls="header04" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="header04">
+        <ul class="d-none d-lg-flex navbar-nav mx-auto mt-3 mt-lg-0 mb-3 mb-lg-0 position-absolute top-50 start-50 translate-middle">
+          <li class="nav-item me-4"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item me-4"><a class="nav-link" href="#">Company</a></li>
+          <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
+        </ul>
+        <ul class="navbar-nav mt-3 mt-lg-0 mb-3 mb-lg-0 d-lg-none">
+          <li class="nav-item me-4"><a class="nav-link" href="#">About</a></li>
+          <li class="nav-item me-4"><a class="nav-link" href="#">Company</a></li>
+          <li class="nav-item me-4"><a class="nav-link" href="#">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#">Testimonials</a></li>
+        </ul>
+        <div class="ms-auto">
+            <%= link_to "Login", new_user_session_path, class:"btn btn-outline-secondary me-2" %>
+            <%= link_to "SignUp", new_user_registration_path, class:"btn btn-primary"  %>
+        </div>
+      </div>
+    </div>
+  </nav>
