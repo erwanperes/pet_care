@@ -1,3 +1,6 @@
 {
+  "VineCode.Sass.errorCss" : "No",
+  "VineCode.Sass.sourceMap" : "None",
+  "VineCode.Sass.workspaceEnable" : false,
   "workspace.color" : 2
 }
