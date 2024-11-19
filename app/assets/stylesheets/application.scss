@@ -1,12 +1,26 @@
 @import "config/fonts";
 @import "config/colors";
+@import "config/bootstrap_variables";
 
 @import "font-awesome";
 
-html {
-    font-family: var(--font-dm-sans);
+@import "components/index";
+
+// Global
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
-h1, h2, h3, h4, h5, h6 {
-    font-family: var(--font-nunito);
+footer {
+  margin-top: auto !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
 }

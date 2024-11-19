@@ -6,8 +6,6 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css">
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
@@ -16,7 +14,7 @@
     <header>
       <%= render "shared/menu" %>
     </header>
-    <main>
+    <main class="container">
       <%= render "shared/flashes" %>
       <%= yield %>
     </main>

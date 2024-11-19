@@ -48,11 +48,10 @@ gem "bootsnap", require: false
 gem "autoprefixer-rails"
 gem 'ostruct'
 gem 'devise'
+gem 'bootstrap', '~> 5.3.0'
 gem "sassc-rails"
 gem 'simple_form'
 gem "font-awesome-sass", "~> 6.1"
-
-
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
