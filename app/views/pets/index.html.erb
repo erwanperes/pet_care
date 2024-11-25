@@ -1,45 +1,134 @@
-<h1>My Pets dashboard</h1>
-<p>views/pets/index.html.erb</p>
- <% if user_signed_in? %>
-	 <%= current_user.full_name %>
-	 <br>
-	<%= link_to 'Edit my profile', edit_user_registration_path %>
-	<br>
-	<%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete} %>
-	<hr>
-	<%= link_to 'Add new pet', new_user_pet_path(current_user) %>
-	<br>
-	<%= link_to 'My pets', pets_path(current_user) %>
-<% else %>
-<article>
-<h2>This is an article</h2>
-<p>Some content will go here, which will be inside your article.</p>
-</article>
-	<%= link_to "Login", new_user_session_path %>
-	<br>
-	<%= link_to "SignUp", new_user_registration_path %>
- <% end %>
- 
- <%  @pets.each do |pet| %>
- 	<table>
-		  <tr>
-			  <th class='title' scope="row"><%= pet.name %></th>
-			  <td><%= pet.breed %></td>
-			  <td><%= pet.species %></td>
-			  <td><%= pet.gender %></td>
-			  <td><%= pet.birth_day %></td>
-			  <td>
-				  <div>
-					  <%= link_to 'Show', [pet]%>
-						  <%= link_to 'Edit', edit_pet_path(pet)%>
-						<%= link_to 'Destroy', [pet], data: {
-							turbo_method: :delete,
-							turbo_confirm: "Are you sure?"
-						  }  %>
-				  </div>
-			</td>
-			</tr>
-		</table>
- <% end %>
- <%= link_to 'Home', root_path %>
- 
+<div data-page-name="<%= page_name %>">
+	<div class="container-fluid">
+		<div class="row">
+			<!-- Sidebar -->
+			<nav class="col-md-3 col-lg-2 sidebar">
+				<div class="position-sticky pt-3">
+					<div class="text-white p-3 mb-4">
+						<h4><%= current_user.full_name %></h4>
+						<h6><%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete} %></h6>
+					</div>
+					<ul class="nav flex-column">
+						<li class="nav-item">
+							<a class="nav-link active" href="#">
+								<i class="bi bi-house me-2"></i>
+								Accueil
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="bi bi-graph-up me-2"></i>
+								Statistiques
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="bi bi-people me-2"></i>
+								Utilisateurs
+							</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">
+								<i class="bi bi-gear me-2"></i>
+								Paramètres
+							</a>
+						</li>
+					</ul>
+				</div>
+			</nav>
+	
+			<!-- Main Content -->
+			<main class="col-md-9 col-lg-10 main-content">
+				<div class="container">
+					<div class="d-flex justify-content-between align-items-center mb-4">
+						<h2>Tableau de bord</h2>
+						<button class="btn btn-primary">Nouveau rapport</button>
+					</div>
+					
+					<!-- Example Content -->
+					<div class="row">
+						<div class="col-md-4 mb-4">
+							<div class="card card-stats">
+								<div class="card-body">
+									<h6 class="card-subtitle text-muted mb-1">Utilisateurs</h6>
+									<h2 class="card-title text-primary mb-2">1,234</h2>
+									<p class="card-text text-success mb-0">
+										<small>↑ 12% ce mois</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="card card-stats">
+								<div class="card-body">
+									<h6 class="card-subtitle text-muted mb-1">Ventes</h6>
+									<h2 class="card-title text-primary mb-2">€5,678</h2>
+									<p class="card-text text-success mb-0">
+										<small>↑ 8% ce mois</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-4 mb-4">
+							<div class="card card-stats">
+								<div class="card-body">
+									<h6 class="card-subtitle text-muted mb-1">Commandes</h6>
+									<h2 class="card-title text-primary mb-2">890</h2>
+									<p class="card-text text-success mb-0">
+										<small>↑ 15% ce mois</small>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+	
+					<!-- Table Example -->
+					<div class="table-responsive">
+						<!-- table-hover ajoute un effet au survol des lignes -->
+						<!-- table-striped ajoute un fond alterné aux lignes -->
+						<table class="table table-hover table-striped align-middle">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Client</th>
+									<th scope="col">Montant</th>
+									<th scope="col">Statut</th>
+									<th scope="col">Date</th>
+									<th scope="col">Actions</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>#1</td>
+									<td>Jean Dupont</td>
+									<td>€100</td>
+									<td><span class="badge bg-success">Complété</span></td>
+									<td>2024-11-23</td>
+									<td>
+										<div class="btn-group btn-group-sm">
+											<button class="btn btn-primary">Voir</button>
+											<button class="btn btn-warning">Éditer</button>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<td>#2</td>
+									<td>Marie Martin</td>
+									<td>€150</td>
+									<td><span class="badge bg-warning">En attente</span></td>
+									<td>2024-11-22</td>
+									<td>
+										<div class="btn-group btn-group-sm">
+											<button class="btn btn-primary">Voir</button>
+											<button class="btn btn-warning">Éditer</button>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+			</main>
+		</div>
+	</div>
+</div>

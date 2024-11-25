@@ -1,0 +1,45 @@
+<h1>My Pets dashboard</h1>
+<p>views/pets/index.html.erb</p>
+ <% if user_signed_in? %>
+	 <%= current_user.full_name %>
+	 <br>
+	<%= link_to 'Edit my profile', edit_user_registration_path %>
+	<br>
+	<%= link_to "Logout", destroy_user_session_path, data: {turbo_method: :delete} %>
+	<hr>
+	<%= link_to 'Add new pet', new_user_pet_path(current_user) %>
+	<br>
+	<%= link_to 'My pets', pets_path(current_user) %>
+<% else %>
+<article>
+<h2>This is an article</h2>
+<p>Some content will go here, which will be inside your article.</p>
+</article>
+	<%= link_to "Login", new_user_session_path %>
+	<br>
+	<%= link_to "SignUp", new_user_registration_path %>
+ <% end %>
+ 
+ <%  @pets.each do |pet| %>
+	 <table>
+		  <tr>
+			  <th class='title' scope="row"><%= pet.name %></th>
+			  <td><%= pet.breed %></td>
+			  <td><%= pet.species %></td>
+			  <td><%= pet.gender %></td>
+			  <td><%= pet.birth_day %></td>
+			  <td>
+				  <div>
+					  <%= link_to 'Show', [pet]%>
+						  <%= link_to 'Edit', edit_pet_path(pet)%>
+						<%= link_to 'Destroy', [pet], data: {
+							turbo_method: :delete,
+							turbo_confirm: "Are you sure?"
+						  }  %>
+				  </div>
+			</td>
+			</tr>
+		</table>
+ <% end %>
+ <%= link_to 'Home', root_path %>
+ 

@@ -1,20 +1,47 @@
-<h2>Log in</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <%= f.input :email,
-              required: false,
-              autofocus: true,
-              input_html: { autocomplete: "email" } %>
+<%= render "pages/menu" %>
+<section class="position-relative py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 col-md-9 col-lg-5 mx-auto mx-lg-0 mb-5">
+        <div>
+          <div class="mx-auto text-center py-5">
+            <span class="text-muted">Sign In</span>
+            <h3 class="fw-bold mb-5">Join our community</h3>
+            
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <%= f.input :email,
+                          required: false,
+                          autofocus: true,
+                          input_html: { 
+                            autocomplete: "email",
+                            class: "form-control mb-2"
+                          },
+                          placeholder: "E-mail address",
+                          label: false %>
               
-  <%= f.input :password,
-              required: false,
-              input_html: { autocomplete: "current-password" } %>
+              <%= f.input :password,
+                          required: false,
+                          input_html: { 
+                            autocomplete: "current-password",
+                            class: "form-control mb-2"
+                          },
+                          placeholder: "Password",
+                          label: false %>
 
-  <% if devise_mapping.rememberable? %>
-    <%= f.input :remember_me, as: :boolean %>
-  <% end %>
+              <% if devise_mapping.rememberable? %>
+                <%= f.input :remember_me, 
+                           as: :boolean,
+                           input_html: { class: "mb-3" } %>
+              <% end %>
 
-  <%= f.button :submit, "Log in", class: "btn btn-primary" %>
-<% end %>
-
-<%= render "devise/shared/links" %>
+              <%= f.button :submit, "Get Started", class: "btn btn-primary py-2 w-100 mb-3" %>
+              
+              <%= link_to "Forgot password?", new_password_path(resource_name), class: "d-inline-block link-secondary mb-4" %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-none d-lg-block position-absolute top-0 end-0 bottom-0 w-50" style="background-image: url('); background-repeat: no-repeat; background-size: cover;"></div>
+  </div>
+</section>

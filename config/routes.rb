@@ -30,3 +30,7 @@ Rails.application.routes.draw do
   # Rediriger toutes les autres routes non trouvées vers la page 404
   match '*path', to: 'errors#not_found', via: :all
 end
+
+
+
+

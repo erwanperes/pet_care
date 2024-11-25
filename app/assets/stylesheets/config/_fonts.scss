@@ -1,4 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,700;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Nunito:ital,wght@0,700;1,700&display=swap");
 
 $body-font: "DM Sans", "Helvetica", "sans-serif";
-$headers-font: "Nunito", "Helvetica", "sans-serif";;
+$headers-font: "Nunito", "Helvetica", "sans-serif";
+
+:root {
+  --bs-font-sans-serif: #{$body-font};
+  --bs-headings-font-family: #{$headers-font};
+}

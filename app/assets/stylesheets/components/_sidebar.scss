@@ -1,0 +1,27 @@
+[data-page-name="pets_index"] .sidebar {
+  background-color: #212529;
+}
+
+[data-page-name="pets_index"] .nav-link.active {
+  background-color: #1c6398;
+}
+
+.nav-link {
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.nav-link:hover {
+  background-color: #343a40;
+  color: #fff;
+}
+
+.main-content {
+  padding: 20px;
+}
+@media (min-width: 768px) {
+  [data-page-name="pets_index"] .sidebar {
+    min-height: 100vh;
+  }
+}
